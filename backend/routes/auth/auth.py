@@ -95,7 +95,7 @@ def create_routes(app):
         email = get_jwt_identity()
         
         # get the user from the database
-        user = get_by_key('email', email)
+        user = db.get_by_key('email', email)
         user['_id'] = str(user['_id'])
 
         return jsonify({"status": "success", "data": user})
